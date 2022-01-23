@@ -26,9 +26,12 @@ public class MemberService {
      */
     public Long join(Member member) {
         // 같은 이름이 있는 중복 회원은 안된다
+
         validateDuplicateMember(member); // control+T 해서 extract method
         memberRepository.save(member);
         return member.getId();
+
+
     }
 
     private void validateDuplicateMember(Member member) {
